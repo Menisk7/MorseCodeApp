@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".WelcomeScreen">
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/welcomeScreen"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+        <Button
+            android:id="@+id/morseChallengeBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="To morse challenge"
+            app:layout_constraintBottom_toTopOf="@+id/translateChallengeBtn"
+            app:layout_constraintEnd_toEndOf="@+id/translateChallengeBtn"
+            app:layout_constraintStart_toStartOf="@+id/translateChallengeBtn"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/translateChallengeBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="To Translate Challenge"
+            app:layout_constraintBottom_toTopOf="@+id/scoreScreenBtn"
+            app:layout_constraintEnd_toEndOf="@+id/scoreScreenBtn"
+            app:layout_constraintStart_toStartOf="@+id/scoreScreenBtn"
+            app:layout_constraintTop_toBottomOf="@+id/morseChallengeBtn" />
+
+        <Button
+            android:id="@+id/scoreScreenBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="To Score Screen"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/translateChallengeBtn" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

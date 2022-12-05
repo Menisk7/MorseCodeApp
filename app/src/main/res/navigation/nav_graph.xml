@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/welcomeScreen">
+
+    <fragment
+        android:id="@+id/morseChallenge"
+        android:name="com.example.myapplication.MorseChallenge"
+        android:label="@string/morseChallenge"
+        tools:layout="@layout/morse_challenge">
+        <action
+            android:id="@+id/action_morseChallenge_to_scoreScreen"
+            app:destination="@id/scoreScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/scoreScreen"
+        android:name="com.example.myapplication.ScoreScreen"
+        android:label="@string/scoreScreen"
+        tools:layout="@layout/score_screen"></fragment>
+    <fragment
+        android:id="@+id/welcomeScreen"
+        android:name="com.example.myapplication.WelcomeScreen"
+        android:label="@string/welcomeScreen"
+        tools:layout="@layout/welcome_screen">
+        <action
+            android:id="@+id/action_welcomeScreen_to_morseChallenge"
+            app:destination="@id/morseChallenge" />
+        <action
+            android:id="@+id/action_welcomeScreen_to_translateChallenge"
+            app:destination="@id/translateChallenge" />
+        <action
+            android:id="@+id/action_welcomeScreen_to_translator2"
+            app:destination="@id/translator" />
+        <action
+            android:id="@+id/action_welcomeScreen_to_scoreScreen"
+            app:destination="@id/scoreScreen" />
+    </fragment>
+    <fragment android:id="@+id/translator" />
+    <fragment
+        android:id="@+id/translateChallenge"
+        android:name="com.example.myapplication.TranslateChallenge"
+        android:label="@string/translateChallenge"
+        tools:layout="@layout/translate_challenge">
+        <action
+            android:id="@+id/action_translateChallenge_to_scoreScreen2"
+            app:destination="@id/scoreScreen" />
+    </fragment>
+</navigation>
