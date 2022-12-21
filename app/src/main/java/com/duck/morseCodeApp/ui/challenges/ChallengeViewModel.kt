@@ -6,7 +6,7 @@ import com.duck.morseCodeApp.model.ChallengeScore
 
 class ChallengeViewModel(private val repository: ChallengeScoreRepository): ViewModel() {
 
-    fun getQuotes()=repository.getScore()
-    fun addQuote(challengeScore: ChallengeScore)=repository.addScore(challengeScore)
+    fun getScore()=repository.getScore()
+    fun addScore(challengeScore: ChallengeScore)=repository.addScore(challengeScore)
 
 }
