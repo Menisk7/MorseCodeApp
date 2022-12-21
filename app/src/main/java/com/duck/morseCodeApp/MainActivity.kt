@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
                     Settings.System.getString(contentResolver, "device_name"),
                     Toast.LENGTH_LONG
                 ).show()
-            }//works from api 23 up (tested)
+            }
         }
     }
 
