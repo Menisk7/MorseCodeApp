@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.duck.morseCodeApp
 
 import org.junit.Test
 

@@ -1,5 +1,4 @@
-package com.example.myapplication
-import com.google.common.collect.HashBiMap
+package com.duck.morseCodeApp
 
 class MorseCode {
     private val morseDictionary = mutableMapOf<String,String>(
@@ -127,8 +126,17 @@ class MorseCode {
     fun encode(usrInput:String): String {
         var output=""
 
+        val letterArray= mutableListOf<String>()
         for (letter in usrInput){
-            output+=morseDictionary[letter.toString()]+" "
+            if(letter!=' ')
+                letterArray+=morseDictionary[letter.toString()].toString()
+            else{
+                letterArray+=" "
+            }
+        }
+
+        for (item in letterArray){
+            output+=item
         }
 
         return output.trimEnd()
@@ -136,10 +144,27 @@ class MorseCode {
 
     fun decode(morseInput:String): String {
         var output=""
-        var morseArr=morseInput.split(" ")
-        for (code in morseArr){
-                output+=textDictionary[code]
+        var word=""
+        val wordArray= mutableListOf<String>()
+
+
+        for (char in morseInput) {
+            if(char !=' ')
+                word+=char
+            else {
+                wordArray+= word
+                word=""
+            }
+
         }
+        wordArray+= word
+        for (item in wordArray)
+        {
+            output+= textDictionary[item].toString()
+        }
+
+
+
         return output
     }
 

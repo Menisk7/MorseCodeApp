@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.duck.morseCodeApp
 
 
 import android.os.Bundle
@@ -7,7 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.example.myapplication.databinding.WelcomeScreenBinding
+import com.duck.morseCodeApp.R
+import com.duck.morseCodeApp.databinding.WelcomeScreenBinding
+
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.

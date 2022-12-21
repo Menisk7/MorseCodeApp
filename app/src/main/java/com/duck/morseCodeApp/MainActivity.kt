@@ -1,4 +1,6 @@
-package com.example.myapplication
+package com.duck.morseCodeApp
+
+
 
 import android.os.Build
 import android.os.Bundle
@@ -11,7 +13,9 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
-import com.example.myapplication.databinding.ActivityMainBinding
+import com.duck.morseCodeApp.databinding.ActivityMainBinding
+
+
 
 
 class MainActivity : AppCompatActivity() {
@@ -60,9 +64,17 @@ class MainActivity : AppCompatActivity() {
         // as you specify a parent activity in AndroidManifest.xml.
         item.setOnMenuItemClickListener(item)
         return when(item.itemId) {
-            R.id.action_about -> true
+            R.id.action_about0 -> {
+                // Handle click on "Action Settings" menu item
+                true
+            }
+            R.id.action_about1 -> {
+                // Handle click on "Action About" menu item
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
+
     }
 
     override fun onSupportNavigateUp(): Boolean {

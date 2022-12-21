@@ -6,12 +6,12 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.myapplication"
+        applicationId 'com.duck.MorseCodeApp'
         minSdk 23
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -34,10 +34,11 @@ android {
     buildFeatures {
         viewBinding true
     }
+    namespace 'com.duck.morseCodeApp'
 }
 
 dependencies {
-    implementation("com.google.guava:guava:31.1-android")
+    implementation('com.google.guava:guava:31.1-jre')
     implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.7.0'
