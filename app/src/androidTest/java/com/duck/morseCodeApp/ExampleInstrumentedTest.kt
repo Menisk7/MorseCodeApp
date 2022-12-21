@@ -2,6 +2,7 @@ package com.duck.morseCodeApp
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.duck.morseCodeApp.util.MorseCode
 
 import org.junit.Test
 import org.junit.runner.RunWith

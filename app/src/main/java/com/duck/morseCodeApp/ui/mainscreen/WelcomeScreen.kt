@@ -1,4 +1,4 @@
-package com.duck.morseCodeApp
+package com.duck.morseCodeApp.ui.mainscreen
 
 
 import android.os.Bundle

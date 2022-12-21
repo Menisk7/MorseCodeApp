@@ -1,4 +1,4 @@
-package com.duck.morseCodeApp
+package com.duck.morseCodeApp.ui.score
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

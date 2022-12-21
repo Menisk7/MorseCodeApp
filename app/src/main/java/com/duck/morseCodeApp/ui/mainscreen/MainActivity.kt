@@ -1,4 +1,4 @@
-package com.duck.morseCodeApp
+package com.duck.morseCodeApp.ui.mainscreen
 
 
 
@@ -13,6 +13,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
+import com.duck.morseCodeApp.R
 import com.duck.morseCodeApp.databinding.ActivityMainBinding
 
 

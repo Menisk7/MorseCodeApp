@@ -1,4 +1,4 @@
-package com.duck.morseCodeApp
+package com.duck.morseCodeApp.util
 
 class MorseCode {
     private val morseDictionary = mutableMapOf<String,String>(
