@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        item.setOnMenuItemClickListener(item)
+        setOnMenuItemClickListener(item)
         return when(item.itemId) {
             R.id.action_about0 -> {
                 // Handle click on "Action Settings" menu item
@@ -83,15 +83,15 @@ class MainActivity : AppCompatActivity() {
             || super.onSupportNavigateUp()
     }
 
-    private fun MenuItem.setOnMenuItemClickListener(item:MenuItem) {
-//        //MenuItem listener
-//        // if you click on item in the list then clickListener is triggered and it shows title of that item in toast
-//        var data= EncryptedSharedPreferences().getSharedPreferences(applicationContext)
-//        data.edit().putString("pop",item.title.toString())
-//        println(data.getString("pop","12334"))
-//        //Toast.makeText(binding.root.context,item.title,Toast.LENGTH_LONG).show()
-//
-        // TODO: menuitem listener 
+    private fun setOnMenuItemClickListener(item: MenuItem) {
+        //MenuItem listener
+        // if you click on item in the list then clickListener is triggered and it shows title of that item in toast
+//        val data= EncryptedSharedPreferences().getSharedPreferences(applicationContext)
+//        data.edit().putString("pop",item.title.toString()).apply()
+        //println(data.getString("pop","12334"))
+        Toast.makeText(binding.root.context,item.title,Toast.LENGTH_LONG).show()
+
+
 
 
     }
