@@ -16,6 +16,6 @@ class ChallengeScoreDao {
         userlist.add(challengeScore)
         users.value=userlist
     }
-    fun getPoints() =users as LiveData<List<ChallengeScore>>
+    fun getScore() =users as LiveData<List<ChallengeScore>>
 
 }
