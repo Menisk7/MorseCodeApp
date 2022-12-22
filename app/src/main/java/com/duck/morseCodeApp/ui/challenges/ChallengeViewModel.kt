@@ -8,5 +8,7 @@ class ChallengeViewModel(private val repository: ChallengeScoreRepository): View
 
     fun getScore()=repository.getScore()
     fun addScore(challengeScore: ChallengeScore)=repository.addScore(challengeScore)
+    fun modifyScore(user: String, points: Int) = repository.modifyScore(user, points)
+
 
 }

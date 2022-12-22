@@ -9,6 +9,10 @@ class ChallengeScoreRepository private constructor(private val challengeScoreDao
         challengeScoreDao.addScore(challengeScore)
 
     }
+    fun modifyScore(user: String, points: Int) {
+        challengeScoreDao.modifyScore(user, points)
+    }
+
     fun getScore()=challengeScoreDao.getScore()
     companion object {
         @Volatile private var instance: ChallengeScoreRepository? = null
