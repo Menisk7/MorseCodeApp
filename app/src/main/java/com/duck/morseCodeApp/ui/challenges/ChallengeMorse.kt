@@ -9,11 +9,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
 import com.duck.morseCodeApp.util.MorseCode
 import com.duck.morseCodeApp.databinding.MorseChallengeBinding
 import com.duck.morseCodeApp.model.ChallengeScore
-import com.duck.morseCodeApp.ui.mainscreen.WelcomeScreenArgs
 import com.duck.morseCodeApp.util.InjectorUtils
 
 
@@ -44,8 +42,7 @@ class ChallengeMorse : Fragment() {
         val cs:ChallengeScore=ChallengeScore("testUser",10)
         //only for testing
         //challengeViewModel.addScore(cs)
-        //only for testing
-
+        var test=arguments?.getInt("key")
 
         return root
 
@@ -82,7 +79,8 @@ class ChallengeMorse : Fragment() {
     }
 
     private fun setup(){
-        binding.promptText.setText("a")
+        val morseCode=MorseCode()
+        binding.promptText.setText(morseCode.generateMorseChallenge())
     }
     fun validateInput(){
 
