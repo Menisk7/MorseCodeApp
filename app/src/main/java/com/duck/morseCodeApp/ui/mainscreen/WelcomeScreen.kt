@@ -36,11 +36,10 @@ private var _binding: WelcomeScreenBinding? = null
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         // TODO: replace this with a drawer style navigation
-
+        val bundle = Bundle()//key,Int
         binding.morseChallengeBtn.setOnClickListener {
-            // TODO: pass arguments form welcomescreen to ChallengeMorse
-
-            val action = WelcomeScreenDirections.actionWelcomeScreenToMorseChallenge()
+            var action = WelcomeScreenDirections.actionWelcomeScreenToMorseChallenge()
+            action.arguments.putAll(bundle)
             findNavController().navigate(action)
         }
 
