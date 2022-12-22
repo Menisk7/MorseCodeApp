@@ -1,7 +1,7 @@
 package com.duck.morseCodeApp.model
 
-data class ChallengeScore(var user: String,
-                          val points:Int){
+data class ChallengeScore(val user: String,
+                          var points:Int){
     override fun toString(): String {
         return "$user $points"
     }
