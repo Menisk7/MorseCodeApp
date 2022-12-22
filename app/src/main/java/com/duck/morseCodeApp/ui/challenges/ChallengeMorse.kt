@@ -42,6 +42,7 @@ class ChallengeMorse : Fragment() {
             //this returns challengeViewModel which manipulates challengeRepository
             ViewModelProvider(this, factory).get(ChallengeViewModel::class.java)
         val cs:ChallengeScore=ChallengeScore("testUser",10)
+        //only for testing
         //challengeViewModel.addScore(cs)
         //only for testing
 
