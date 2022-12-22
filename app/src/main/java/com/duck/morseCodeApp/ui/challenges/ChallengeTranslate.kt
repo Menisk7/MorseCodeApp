@@ -25,7 +25,7 @@ private var _binding: TranslateChallengeBinding? = null
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
+       var test=arguments?.getInt("key")
       _binding = TranslateChallengeBinding.inflate(inflater, container, false)
       return binding.root
 
