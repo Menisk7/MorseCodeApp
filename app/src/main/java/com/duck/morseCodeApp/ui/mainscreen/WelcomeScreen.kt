@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import androidx.core.text.isDigitsOnly
 import androidx.core.widget.addTextChangedListener
 import androidx.navigation.fragment.findNavController
-import com.duck.morseCodeApp.R
 import com.duck.morseCodeApp.databinding.WelcomeScreenBinding
 
 
@@ -21,6 +20,7 @@ class WelcomeScreen : Fragment() {
 private var _binding: WelcomeScreenBinding? = null
     // This property is only valid between onCreateView and
     // onDestroyView.
+    private var numberOfChallenges:Int=0
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -46,6 +46,7 @@ private var _binding: WelcomeScreenBinding? = null
 
         binding.translateChallengeBtn.setOnClickListener {
             val action = WelcomeScreenDirections.actionWelcomeScreenToTranslateChallenge()
+            action.arguments.putAll(bundle)
             findNavController().navigate(action)
         }
 
