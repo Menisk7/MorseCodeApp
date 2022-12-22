@@ -37,10 +37,6 @@
         <action
             android:id="@+id/action_welcomeScreen_to_scoreScreen"
             app:destination="@id/scoreScreen" />
-        <argument
-            android:name="numberOfChallenges"
-            app:argType="integer"
-            android:defaultValue="0" />
 
     </fragment>
     <fragment android:id="@+id/translator" />
