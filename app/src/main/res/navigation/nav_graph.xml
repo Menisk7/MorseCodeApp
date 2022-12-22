@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/morseChallenge"
-        android:name="com.duck.morseCodeApp.ui.challenges.MorseChallenge"
+        android:name="com.duck.morseCodeApp.ui.challenges.ChallengeMorse"
         android:label="@string/morseChallenge"
         tools:layout="@layout/morse_challenge">
         <action
@@ -26,7 +26,8 @@
         tools:layout="@layout/welcome_screen">
         <action
             android:id="@+id/action_welcomeScreen_to_morseChallenge"
-            app:destination="@id/morseChallenge" />
+            app:destination="@id/morseChallenge"/>
+
         <action
             android:id="@+id/action_welcomeScreen_to_translateChallenge"
             app:destination="@id/translateChallenge" />
@@ -36,11 +37,16 @@
         <action
             android:id="@+id/action_welcomeScreen_to_scoreScreen"
             app:destination="@id/scoreScreen" />
+        <argument
+            android:name="numberOfChallenges"
+            app:argType="integer"
+            android:defaultValue="0" />
+
     </fragment>
     <fragment android:id="@+id/translator" />
     <fragment
         android:id="@+id/translateChallenge"
-        android:name="com.duck.morseCodeApp.ui.challenges.TranslateChallenge"
+        android:name="com.duck.morseCodeApp.ui.challenges.ChallengeTranslate"
         android:label="@string/translateChallenge"
         tools:layout="@layout/translate_challenge">
         <action

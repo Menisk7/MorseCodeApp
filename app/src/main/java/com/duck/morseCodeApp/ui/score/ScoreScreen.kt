@@ -5,7 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import com.duck.morseCodeApp.R
+import com.duck.morseCodeApp.databinding.MorseChallengeBinding
 import com.duck.morseCodeApp.databinding.ScoreScreenBinding
+import com.duck.morseCodeApp.ui.challenges.ChallengeViewModel
+import com.duck.morseCodeApp.util.InjectorUtils
 
 
 /**
@@ -13,29 +20,32 @@ import com.duck.morseCodeApp.databinding.ScoreScreenBinding
  */
 class ScoreScreen : Fragment() {
 
-
-private var _binding: ScoreScreenBinding? = null
-    // This property is only valid between onCreateView and
-    // onDestroyView.
+    private lateinit var challengeViewModel: ChallengeViewModel
+    private var _binding: ScoreScreenBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-      _binding = ScoreScreenBinding.inflate(inflater, container, false)
-      return binding.root
-
+        _binding = ScoreScreenBinding.inflate(inflater, container, false)
+        val root: View = binding.root
+        val factory= InjectorUtils.provideChallengeViewModelFactory()
+        challengeViewModel =
+            //this returns challengeViewModel which manipulates challengeRepository
+            ViewModelProvider(this, factory).get(ChallengeViewModel::class.java)
+        challengeViewModel.getScore().observe(viewLifecycleOwner, Observer { user->
+            val stringBuilder=StringBuilder()
+            user.forEach { score ->
+                stringBuilder.append("${score.user} ${score.points}\n")
+            }
+            binding.scoreTextView.text=stringBuilder.toString()
+        })
+        return root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-
-
-
-
     }
 override fun onDestroyView() {
         super.onDestroyView()

@@ -2,9 +2,8 @@ package com.duck.morseCodeApp.ui.mainscreen
 
 
 
-import android.os.Build
+
 import android.os.Bundle
-import android.provider.Settings
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -27,8 +26,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-     binding = ActivityMainBinding.inflate(layoutInflater)
-     setContentView(binding.root)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)
 
@@ -37,20 +36,11 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
 
 
-        // TODO: the floating btn with envelope on it might be usefull now it's disabled 
+        // TODO: the floating btn with envelope on it might be usefull now it's disabled
         binding.fab.setOnClickListener {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1) {
-                Toast.makeText(this,Settings.Global.getString(contentResolver, Settings.Global.DEVICE_NAME),Toast.LENGTH_LONG).show()
-            }else {
-                Toast.makeText(
-                    this,
-                    Settings.System.getString(contentResolver, "device_name"),
-                    Toast.LENGTH_LONG
-                ).show()
-            }
+
         }
     }
-
 
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -64,7 +54,7 @@ class MainActivity : AppCompatActivity() {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         setOnMenuItemClickListener(item)
-        return when(item.itemId) {
+        return when (item.itemId) {
             R.id.action_about0 -> {
                 // Handle click on "Action Settings" menu item
                 true
@@ -79,10 +69,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onSupportNavigateUp(): Boolean {
-    val navController = findNavController(R.id.nav_host_fragment_content_main)
-    return navController.navigateUp(appBarConfiguration)
-            || super.onSupportNavigateUp()
+        val navController = findNavController(R.id.nav_host_fragment_content_main)
+        return navController.navigateUp(appBarConfiguration)
+                || super.onSupportNavigateUp()
     }
+
 
     private fun setOnMenuItemClickListener(item: MenuItem) {
         //MenuItem listener
@@ -90,12 +81,19 @@ class MainActivity : AppCompatActivity() {
 //        val data= EncryptedSharedPreferences().getSharedPreferences(applicationContext)
 //        data.edit().putString("pop",item.title.toString()).apply()
         //println(data.getString("pop","12334"))
-        Toast.makeText(binding.root.context,item.title,Toast.LENGTH_LONG).show()
 
-
-
-
+        if (item.itemId == android.R.id.home) {
+            // Handle back button click
+        } else {
+            Toast.makeText(binding.root.context, item.title, Toast.LENGTH_LONG).show()
+        }
     }
+
+
+
+
+
 }
+
 
 

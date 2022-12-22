@@ -14,7 +14,7 @@ import com.duck.morseCodeApp.databinding.TranslateChallengeBinding
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
-class TranslateChallenge : Fragment() {
+class ChallengeTranslate : Fragment() {
 
 private var _binding: TranslateChallengeBinding? = null
     // This property is only valid between onCreateView and

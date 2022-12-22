@@ -18,6 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -30,6 +31,7 @@
             android:id="@+id/morseChallengeBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:enabled="false"
             android:text="To morse challenge"
             app:layout_constraintBottom_toTopOf="@+id/translateChallengeBtn"
             app:layout_constraintEnd_toEndOf="@+id/translateChallengeBtn"
@@ -40,6 +42,7 @@
             android:id="@+id/translateChallengeBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:enabled="false"
             android:text="To Translate Challenge"
             app:layout_constraintBottom_toTopOf="@+id/scoreScreenBtn"
             app:layout_constraintEnd_toEndOf="@+id/scoreScreenBtn"
@@ -56,4 +59,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/translateChallengeBtn" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <EditText
+        android:id="@+id/numberOfChallenges"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="numberSigned"
+        android:text="number of challenges"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
