@@ -1,4 +1,4 @@
 # MorseCodeApp
-Morse code training/translator app
+Morse code training/translator app 
+Written in mvvm architecture
 ![](app1.png)
-in future score screen might be seperate 
