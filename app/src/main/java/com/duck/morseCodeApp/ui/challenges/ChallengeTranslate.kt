@@ -25,7 +25,7 @@ private var _binding: TranslateChallengeBinding? = null
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
+       var test=arguments?.getInt("key")
       _binding = TranslateChallengeBinding.inflate(inflater, container, false)
       return binding.root
 
@@ -57,7 +57,8 @@ private var _binding: TranslateChallengeBinding? = null
     }
 
     private fun setup(){
-        binding.promptText.setText("a")
+        val morseCode=MorseCode()
+        binding.promptText.setText(morseCode.generateTranslateChallenge())
     }
     private fun validateInput(){
         val morseCode= MorseCode()
