@@ -53,12 +53,16 @@ private var _binding: WelcomeScreenBinding? = null
             val action = WelcomeScreenDirections.actionWelcomeScreenToScoreScreen()
             findNavController().navigate(action)
         }
-        binding.numberOfChallenges.addTextChangedListener {
-            if(binding.numberOfChallenges.text.isDigitsOnly()&&binding.numberOfChallenges.text.isNotEmpty()) {
+        binding.numberOfChallengesEditText.addTextChangedListener {
+            if(binding.numberOfChallengesEditText.text.isDigitsOnly()&&binding.numberOfChallengesEditText.text.isNotEmpty()) {
                 binding.morseChallengeBtn.isEnabled=true
+                binding.translateChallengeBtn.isEnabled=true
+                numberOfChallenges=binding.numberOfChallengesEditText.text.toString().toInt()
+                bundle.putInt("key", numberOfChallenges)
             }else
             {
                 binding.morseChallengeBtn.isEnabled=false
+                binding.translateChallengeBtn.isEnabled=false
             }
         }
 
