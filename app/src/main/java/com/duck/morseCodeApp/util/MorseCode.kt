@@ -1,5 +1,7 @@
 package com.duck.morseCodeApp.util
 
+import kotlin.random.Random
+
 class MorseCode {
     private val morseDictionary = mutableMapOf<String,String>(
         "a"  to ".-",
@@ -166,6 +168,20 @@ class MorseCode {
 
 
         return output
+    }
+
+    //helper
+    private fun <T, U> generateChallenge(dictionary: Map<T, U>): U {
+        val keys = dictionary.keys
+        return dictionary[keys.random()]!!
+    }
+
+    fun generateMorseChallenge(): String {
+        return generateChallenge(textDictionary)
+    }
+
+    fun generateTranslateChallenge(): String {
+        return generateChallenge(morseDictionary)
     }
 
 }
