@@ -1,5 +1,6 @@
 package com.duck.morseCodeApp.util
 
+
 import kotlin.random.Random
 
 class MorseCode {
@@ -173,7 +174,10 @@ class MorseCode {
     //helper
     private fun <T, U> generateChallenge(dictionary: Map<T, U>): U {
         val keys = dictionary.keys
-        return dictionary[keys.random()]!!
+
+        val random: Random = RandomGenerator().getRandom()
+
+        return dictionary[keys.shuffled().random(random)]!!
     }
 
     fun generateMorseChallenge(): String {
