@@ -24,7 +24,7 @@ private var _binding: TranslateChallengeBinding? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
        var test=arguments?.getInt("key")
       _binding = TranslateChallengeBinding.inflate(inflater, container, false)
       return binding.root
