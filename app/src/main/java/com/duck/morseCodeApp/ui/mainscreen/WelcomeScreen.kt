@@ -20,13 +20,13 @@ class WelcomeScreen : Fragment() {
 private var _binding: WelcomeScreenBinding? = null
     // This property is only valid between onCreateView and
     // onDestroyView.
-    private var numberOfChallenges:Int=0
+
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
       _binding = WelcomeScreenBinding.inflate(inflater, container, false)
       return binding.root
@@ -36,16 +36,15 @@ private var _binding: WelcomeScreenBinding? = null
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         // TODO: replace this with a drawer style navigation
-        val bundle = Bundle()//key,Int
         binding.morseChallengeBtn.setOnClickListener {
-            var action = WelcomeScreenDirections.actionWelcomeScreenToMorseChallenge()
-            action.arguments.putAll(bundle)
+            val action = WelcomeScreenDirections.actionWelcomeScreenToMorseChallenge()
+            action.arguments.putAll(prepareArgs())
             findNavController().navigate(action)
         }
 
         binding.translateChallengeBtn.setOnClickListener {
             val action = WelcomeScreenDirections.actionWelcomeScreenToTranslateChallenge()
-            action.arguments.putAll(bundle)
+            action.arguments.putAll(prepareArgs())
             findNavController().navigate(action)
         }
 
@@ -53,19 +52,47 @@ private var _binding: WelcomeScreenBinding? = null
             val action = WelcomeScreenDirections.actionWelcomeScreenToScoreScreen()
             findNavController().navigate(action)
         }
-        binding.numberOfChallengesEditText.addTextChangedListener {
-            if(binding.numberOfChallengesEditText.text.isDigitsOnly()&&binding.numberOfChallengesEditText.text.isNotEmpty()) {
-                binding.morseChallengeBtn.isEnabled=true
-                binding.translateChallengeBtn.isEnabled=true
-                numberOfChallenges=binding.numberOfChallengesEditText.text.toString().toInt()
-                bundle.putInt("key", numberOfChallenges)
+
+        binding.userNameEditText.addTextChangedListener {
+            if(checkFields()) {
+                prepareArgs()
+                toggleButtons(true)
             }else
             {
-                binding.morseChallengeBtn.isEnabled=false
-                binding.translateChallengeBtn.isEnabled=false
+                toggleButtons(false)
+            }
+        }
+        binding.numberOfChallengesEditText.addTextChangedListener {
+            if(checkFields()) {
+                prepareArgs()
+                toggleButtons(true)
+            }else
+            {
+                toggleButtons(false)
             }
         }
 
+
+
+    }
+    private fun checkFields(): Boolean {
+        val userNameText=binding.userNameEditText.text
+        val numberOfChallengesText=binding.numberOfChallengesEditText.text
+        return userNameText.isNotEmpty()&&
+                numberOfChallengesText.isDigitsOnly()&&numberOfChallengesText.isNotEmpty()&&numberOfChallengesText.toString().toInt()>0
+
+    }
+
+    private fun toggleButtons(enable: Boolean) {
+        binding.morseChallengeBtn.isEnabled = enable
+        binding.translateChallengeBtn.isEnabled = enable
+    }
+
+    private fun prepareArgs(): Bundle {
+        val bundle = Bundle()//key,Int
+        bundle.putString("userName", binding.userNameEditText.text.toString())
+        bundle.putInt("numberOfChallenges", binding.numberOfChallengesEditText.text.toString().toInt())
+        return bundle
     }
 
 override fun onDestroyView() {
