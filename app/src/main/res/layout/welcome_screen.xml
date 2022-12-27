@@ -7,25 +7,15 @@
     tools:context=".ui.mainscreen.WelcomeScreen">
 
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/welcomeScreen"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2">
+        app:layout_constraintStart_toStartOf="parent">
 
         <Button
             android:id="@+id/morseChallengeBtn"
@@ -58,7 +48,37 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/translateChallengeBtn" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/userNameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="User Name"
+        app:layout_constraintBottom_toTopOf="@+id/userNameEditText"
+        app:layout_constraintEnd_toEndOf="@+id/userNameEditText"
+        app:layout_constraintStart_toStartOf="@+id/userNameEditText" />
+
+    <EditText
+        android:id="@+id/userNameEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/numberOfChallangesLabel"
+        app:layout_constraintEnd_toEndOf="@+id/number_of_challenges_edit_text"
+        app:layout_constraintStart_toStartOf="@+id/number_of_challenges_edit_text" />
+
+    <TextView
+        android:id="@+id/numberOfChallangesLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Number Of Challenges"
+        app:layout_constraintBottom_toTopOf="@+id/number_of_challenges_edit_text"
+        app:layout_constraintEnd_toEndOf="@+id/number_of_challenges_edit_text"
+        app:layout_constraintStart_toStartOf="@+id/number_of_challenges_edit_text" />
 
     <EditText
         android:id="@+id/number_of_challenges_edit_text"
@@ -67,8 +87,10 @@
         android:ems="10"
         android:gravity="center"
         android:inputType="numberSigned"
-        android:text="number of challenges"
+        android:maxLength="3"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
