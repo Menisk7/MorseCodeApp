@@ -12,6 +12,9 @@ class ChallengeScoreRepository private constructor(private val challengeScoreDao
     fun modifyScore(user: String, points: Int) {
         challengeScoreDao.modifyScore(user, points)
     }
+    fun getUsers(): List<String> {
+        return challengeScoreDao.getUsers()
+    }
 
     fun getScore()=challengeScoreDao.getScore()
     companion object {

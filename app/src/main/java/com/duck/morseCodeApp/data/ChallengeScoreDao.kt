@@ -20,8 +20,10 @@ class ChallengeScoreDao {
         val userScore = userlist.find { it.user == user }
         if (userScore != null) {
             userScore.points = points
-            users.value = userlist
         }
+    }
+    fun getUsers(): List<String> {
+        return userlist.map { it.user }
     }
     fun getScore() =users as LiveData<List<ChallengeScore>>
 
