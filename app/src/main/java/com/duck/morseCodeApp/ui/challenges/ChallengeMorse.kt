@@ -46,10 +46,9 @@ class ChallengeMorse : Fragment() {
         val cs =ChallengeScore(username,0)
         //only for testing
         challengeViewModel.addScore(cs)
-        val users=challengeViewModel.getUsers()
+        //val users=challengeViewModel.getUsers()
+        //val user = users.find { it == "test" }
 
-        val user = users.find { it == "test" }
-        var useg=user
 
         return root
 
@@ -114,10 +113,8 @@ class ChallengeMorse : Fragment() {
 
     private fun showResponse(isCorrect:Boolean)
     {
-        if(isCorrect)
-            Toast.makeText(binding.root.context.applicationContext, "Correct!", Toast.LENGTH_LONG).show()
-        else
-        Toast.makeText(binding.root.context.applicationContext,"Wrong!",Toast.LENGTH_LONG).show()
+        if(isCorrect) Toast.makeText(binding.root.context.applicationContext, "Correct!", Toast.LENGTH_LONG).show()
+        else Toast.makeText(binding.root.context.applicationContext,"Wrong!",Toast.LENGTH_LONG).show()
     }
     private fun setFinalScore()
     {challengeViewModel.modifyScore(requireArguments().getString("userName")!!,points)}
@@ -127,12 +124,13 @@ class ChallengeMorse : Fragment() {
         return userInput == binding.promptText.text.toString()
     }
     private fun process(){
+        ++numberOfChallenge
         if (validateInput()) {
             ++points
-            ++numberOfChallenge
             showResponse(true)
             toNextChallenge(numberOfChallenge <= chosenNumberOfChallenges)
         }else{
+            toNextChallenge(numberOfChallenge <= chosenNumberOfChallenges)
             showResponse(false)
         }
         if(numberOfChallenge>chosenNumberOfChallenges)
