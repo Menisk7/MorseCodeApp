@@ -1,10 +1,12 @@
 package com.duck.morseCodeApp.util
 
 
+import com.google.common.collect.BiMap
 import kotlin.random.Random
+import com.google.common.collect.HashBiMap
 
 class MorseCode {
-    private val morseDictionary = mutableMapOf<String,String>(
+    private val morseDictionary =  HashBiMap.create(mutableMapOf(
         "a"  to ".-",
         "b"  to "-...",
         "c"  to "-.-.",
@@ -58,65 +60,27 @@ class MorseCode {
         "/"	 to  "-..-.",
         ""   to  " ",
         " "  to  ""
-    )
-
-    private val textDictionary = mutableMapOf<String,String>(
-       ".-"    to "a",
-       "-..."  to "b" ,
-       "-.-."  to "c",
-       "-.."   to "d" ,
-       "."     to "e" ,
-       "..-."  to "f" ,
-       "--."   to "g" ,
-       "...."  to "h" ,
-       ".."    to "i" ,
-       ".---"  to "j" ,
-       "-.-"   to "k" ,
-       ".-.."  to "l" ,
-       "--"    to "m" ,
-       "-."    to "n" ,
-       "---"   to "o" ,
-       ".--."  to "p" ,
-       "--.-"  to "q" ,
-       ".-."   to "r" ,
-       "..."   to "s" ,
-       "-"     to "t" ,
-       "..-"   to "u" ,
-       "...-"  to "v" ,
-       ".--"   to "w" ,
-       "-..-"  to "x" ,
-       "-.--"  to "y" ,
-       "--.."  to "z" ,
-       "-----" to "0" ,
-       ".----" to "1" ,
-       "..---" to "2" ,
-       "...--" to "3" ,
-       "....-" to "4" ,
-       "....." to "5" ,
-       "-...." to "6" ,
-       "--..." to "7" ,
-       "---.." to "8" ,
-       "----." to "9" ,
-       ".-..." to "&" ,
-       ".----" to "\'",
-       ".--.-" to "@" ,
-       "-.--." to ")" ,
-       "-.--." to "(" ,
-       "---.." to ":" ,
-       "--..-" to "," ,
-       "-...-" to "=" ,
-       "-.-.-" to "!" ,
-       ".-.-." to "." ,
-       "-...." to "-" ,
-       ".-.-." to "+",
-       ".-..-" to "\"",
-       "..--." to "?",
-       "-..-." to "/",
-       ""      to " "
-    )
+    ))
 
 
 
+    private val morseDictionaryPunctuation =  HashBiMap.create(mutableMapOf(
+    "&"  to  ".-...",
+    "\'" to  ".----.",
+    "@"  to  ".--.-.",
+    ")"  to  "-.--.-",
+    "("  to  "-.--.",
+    ":"  to  "---...",
+    ","  to  "--..--",
+    "="  to  "-...-",
+    "!"  to  "-.-.--",
+    "."  to  ".-.-.-",
+    "-"  to  "-....-",
+    "+"  to	 ".-.-.",
+    "\"" to  ".-..-.",
+    "?"	 to  "..--..",
+    "/"	 to  "-..-.",
+    ))
 
 
 //    private var data = HashBiMap.create(morseDictionary)
@@ -163,7 +127,7 @@ class MorseCode {
         wordArray+= word
         for (item in wordArray)
         {
-            output+= textDictionary[item].toString()
+            output+= morseDictionary.inverse()[item].toString()
         }
 
 
@@ -171,17 +135,21 @@ class MorseCode {
         return output
     }
 
-    //helper
-    private fun <T, U> generateChallenge(dictionary: Map<T, U>): U {
+    //helpertret
+   private fun <T, U> generateChallenge(dictionary: BiMap<T, U>): U {
         val keys = dictionary.keys
 
         val random: Random = RandomGenerator().getRandom()
-
-        return dictionary[keys.shuffled().random(random)]!!
+        val key=keys.shuffled().random(random)
+        return dictionary[key]!!
     }
 
     fun generateMorseChallenge(): String {
-        return generateChallenge(textDictionary)
+        return generateChallenge(morseDictionary.inverse())
+    }
+
+    fun generateMorseChallengePunctuation(): String {
+        return generateChallenge(morseDictionaryPunctuation.inverse())
     }
 
     fun generateTranslateChallenge(): String {
